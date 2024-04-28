@@ -20,25 +20,30 @@ const HeroSection = () => {
               Hello, I&apos;m{" "}
             </span>
             <br></br>
-            <TypeAnimation
-              sequence={[
-                "Zniguef",
-                1000,
-                "Web Developer",
-                1000,
-                // "Mobile Developer",
-                // 1000,
-                // "UI/UX Designer",
-                // 1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
+            <div className="h-64 mb-2">
+              <TypeAnimation
+                sequence={[
+                  "Zniguef",
+                  1000,
+                  "Web Developer",
+                  1000,
+                  "Full-stack developer",
+                  1000,
+                  "JavaScript developer",
+                  1000,
+                  "Java developer",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </div>
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptuous.
+            I support business owners and companies to grow wider by converting{" "}
+            <br />
+            their ideas into web products.
           </p>
           <div>
             <Link

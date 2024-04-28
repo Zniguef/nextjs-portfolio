@@ -2,29 +2,55 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
+import Link from "next/link";
 
 const TAB_DATA = [
+  {
+    title: "Work Experience",
+    id: "work-experience",
+    content: (
+      <>
+        <ul className="list-disc pl-2">
+          <li>
+            Engilabs: Software Engineer (Nov 2023 - Present, Agadir Remotely)
+          </li>
+          <li>
+            X-Hub: Software Engineer (Dec 2022 - Oct 2023, Casablanca Remotely)
+          </li>
+          <li>
+            X-Hub: Intern Front-end developer (June 2022 - Dec 2022, Casablanca
+            Remotely)
+          </li>
+          <li>
+            DevoTech: Intern Back-end developer (Aug 2021 - Nov 2021, Agadir
+            Remotely)
+          </li>
+          <li>
+            Storeino: Intern Front-end developer (March 2021 - May 2021, Agadir)
+          </li>
+        </ul>
+        <Link
+          target="_blank"
+          className="px-6 mt-4 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+          href="https://www.linkedin.com/in/mohamed-zniguef-a148351a4"
+          passHref
+        >
+          See more details
+        </Link>
+      </>
+    ),
+  },
   {
     title: "Skills",
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>PostgreSQL</li>
-        <li>Sequelize</li>
-        <li>JavaScript</li>
-        <li>React</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Fullstack Academy of Code</li>
-        <li>University of California, Santa Cruz</li>
+        <li>Html, Css, Scss, TailwindCss</li>
+        <li>JavaScript, TypeScript, React</li>
+        <li>Express, Nest.js</li>
+        <li>Java, Spring boot</li>
+        <li>Git, Github, GitLab</li>
+        <li>Redux, GraphQL</li>
       </ul>
     ),
   },
@@ -33,15 +59,17 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
+        <li>JavaScript Essential Training</li>
+        <li>Full-Stack With Node.js, Express, and MongoDB</li>
+        <li>Write JavaScript for the web</li>
+        <li>Get started with React</li>
       </ul>
     ),
   },
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("work-experience");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -58,32 +86,31 @@ const AboutSection = () => {
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
             I am a full stack web developer with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with JavaScript, React, Redux, Node.js, Express, PostgreSQL,
-            Sequelize, HTML, CSS, and Git. I am a quick learner and I am always
-            looking to expand my knowledge and skill set. I am a team player and
-            I am excited to work with others to create amazing applications.
+            interactive and responsive web applications. <br />
+            I have experience working with JavaScript (React, Nestjs), Java
+            (Spring boot) <br />I am always looking to expand my knowledge and
+            skill set. I am a team player and I am excited to work with others
+            to create amazing applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
+            <TabButton
+              selectTab={() => handleTabChange("work-experience")}
+              active={tab === "work-experience"}
+            >
+              {" "}
+              Work experience
+            </TabButton>
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
-              {" "}
               Skills{" "}
             </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              {" "}
-              Education{" "}
-            </TabButton>
+
             <TabButton
               selectTab={() => handleTabChange("certifications")}
               active={tab === "certifications"}
             >
-              {" "}
               Certifications{" "}
             </TabButton>
           </div>
